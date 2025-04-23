@@ -10,6 +10,12 @@ fastify.addHook('preHandler', myMiddleware)
 
 fastify.get('/',async (request,reply) => {
     reply.send({
+        message : "server is listening"
+    })
+})
+
+fastify.get('/health',async (request,reply) => {
+    reply.send({
         message : "server is healthy"
     })
 })
