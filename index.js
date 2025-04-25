@@ -33,6 +33,12 @@ fastify.post('/data', async(request,reply) => {
 
 })
 
+fastify.post('/tweet', async(request,reply) => {
+    const {title,desc} =  request.body;
+    return { title,desc }
+
+})
+
 fastify.post('/validate', {
     schema : {
         body : {
@@ -48,6 +54,25 @@ fastify.post('/validate', {
     async (request,reply) => {
         reply.send({
             message : "validated successfully"
+        })
+    }
+)
+
+fastify.post('/validate', {
+    schema : {
+        body : {
+            type : "object",
+            required : ["title","desc"],
+            properties : {
+                title : {type : "string"},
+                desc : {type : "string"},
+            },
+        },
+    },
+},
+    async (request,reply) => {
+        reply.send({
+            message : "posted successfully"
         })
     }
 )
