@@ -39,6 +39,12 @@ fastify.post('/tweet', async(request,reply) => {
 
 })
 
+fastify.get('/tweet', async(request,reply) => {
+   const tweet = "Elon musk latest tweet goes herer..."
+    return { tweet }
+
+})
+
 fastify.post('/validate', {
     schema : {
         body : {
@@ -78,5 +84,5 @@ fastify.post('/validate', {
 )
 
 fastify.listen({port : 4000}, (address)=>{
-    console.log("server is listening on port 4000")
+    console.log("listening on port 4000")
 })
