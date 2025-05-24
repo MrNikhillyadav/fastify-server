@@ -40,7 +40,7 @@ fastify.post('/tweet', async(request,reply) => {
 })
 
 fastify.get('/tweet', async(request,reply) => {
-   const tweet = "Elon musk latest tweet goes herer..."
+   const tweet = "Elon musk latest tweet goes here!"
     return { tweet }
 
 })
