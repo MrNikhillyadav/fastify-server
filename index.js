@@ -27,16 +27,25 @@ fastify.get('/user/:id',(request,reply) => {
     })
 })
 
+
 fastify.post('/data', async(request,reply) => {
     const {name,age} =  request.body;
     return { name, age }
-
+    
 })
 
 fastify.post('/tweet', async(request,reply) => {
     const {title,desc} =  request.body;
     return { title,desc }
+    
+})
 
+fastify.get('/tweet/:id',(request,reply) => {
+    const id = request.params.id;
+    reply.send({
+        id : id,
+        message : "tweet recieved"
+    })
 })
 
 fastify.get('/tweet', async(request,reply) => {
@@ -57,7 +66,7 @@ fastify.post('/validate', {
         },
     },
 },
-    async (request,reply) => {
+    async (request, reply) => {
         reply.send({
             message : "validated successfully"
         })
