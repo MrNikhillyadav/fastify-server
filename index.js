@@ -44,7 +44,7 @@ fastify.get('/tweet/:id',(request,reply) => {
     const id = request.params.id;
     reply.send({
         id : id,
-        message : "tweet recieved"
+        message : "fetched tweet"
     })
 })
 
